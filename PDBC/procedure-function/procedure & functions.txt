@@ -72,7 +72,7 @@ mysql> create function square(num int)
     -> set result = num * num;
     -> return result;
     -> end &&
-    
+mysql>  delimiter ;
 mysql> select square(10);
 
 ==========================================================

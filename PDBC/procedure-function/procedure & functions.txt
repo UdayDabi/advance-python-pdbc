@@ -1,47 +1,64 @@
 ==========================================================
 # Stored Procedure (in)
 ==========================================================
+USE advancepython;
 
-mysql> delimiter &&
-mysql> create procedure empIn(in c int)
-    -> begin
-    -> select * from emp where id = c;
-    -> end &&
-    
-mysql> set @input = 11;
+DELIMITER &&
 
-mysql> call empIn(@input);
+CREATE PROCEDURE empIn(IN c INT)
+BEGIN
+    SELECT * FROM emp WHERE id = c;
+END &&
+
+DELIMITER ;
+
+ --- for get-----
+SET @input = 11;
+CALL empIn(@input);
+
+
 
 ==========================================================
 # Stored Procedure (out)
-==========================================================
+=========================================================
 
-mysql> delimiter &&
-mysql> create procedure empOut(out c int)
-    -> begin
-    -> select salary into c from emp where id = 10;
-    -> end &&
-    
-mysql> call empOut(@output);
+DELIMITER &&
 
-mysql> select @output;    
-  
+CREATE PROCEDURE empOut(OUT c INT)
+BEGIN
+    SELECT salary INTO c FROM emp WHERE id = 7;
+END &&
+
+DELIMITER ;
+
+--- for get----
+
+CALL empOut(@output);
+SELECT @output;
+
+
 ==========================================================  
 # Stored Procedure (inout)
 ==========================================================
+DELIMITER &&
 
-mysql> delimiter &&
-mysql> create procedure empInOut(inout c int)
-    -> begin
-    -> select salary into c from emp where id = c;
-    -> end &&
-    
-mysql> set @inout = 1;
+CREATE PROCEDURE empInOut(INOUT c INT)
+BEGIN
+    SELECT salary INTO c 
+    FROM emp 
+    WHERE id = c;
+END &&
 
-mysql> call empInOut(@inout);
+DELIMITER ;
 
-mysql> select @inout;
-    
+
+SET @inout = 1;
+
+CALL empInOut(@inout);
+SELECT @inout;
+
+
+
 ========================================================== 
 # Stored Function
 ==========================================================
@@ -59,3 +76,10 @@ mysql> create function square(num int)
 mysql> select square(10);
 
 ==========================================================
+
+
+
+
+
+
+

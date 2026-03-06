@@ -1,0 +1,23 @@
+d = {'a': 1, 'b': 2, 'c': 3, 'd': 4}
+
+print("dictionary:", d)
+print(d.setdefault('c', 4))
+print("dictionary after setdefault:", d)
+print(d.get('a'))
+print(d.keys())
+print(d.items())
+print(d.values())
+c = d.copy()
+print("copy of dictionary:", c)
+print("dictionary after update:", d)
+d.pop('b')
+print("dictionary after pop:", d)
+d.popitem()
+print("dictionary after popitem :" , d)
+d.popitem()
+print("dictionary after popitem :" , d)
+d.update({'e': 5, 'f': 6})
+print("dictionary after update:", d)
+#print(d.fromkeys(['x', 'y', 'z'], 0))
+
+print(d.__len__())

@@ -63,17 +63,17 @@ SELECT @inout;
 # Stored Function
 ==========================================================
 
-mysql> delimiter &&
-mysql> create function square(num int)
-    -> returns int
-    -> deterministic
-    -> begin
-    -> declare result int;
-    -> set result = num * num;
-    -> return result;
-    -> end &&
-mysql>  delimiter ;
-mysql> select square(10);
+delimiter &&
+create function square(num int)
+     returns int
+    deterministic
+     begin
+    declare result int;
+     set result = num * num;
+     return result;
+    end &&
+ delimiter ;
+select square(10);
 
 ==========================================================
 
